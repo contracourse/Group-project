@@ -2,7 +2,6 @@
 title: "Volatility Investing strategy"
 author: "Group Project"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-abstract: "This is an abstract"
 output:
   pdf_document: default
   html_document: default
