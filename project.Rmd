@@ -1,0 +1,39 @@
+---
+title: "Volatility Investing strategy"
+author: "Group Project"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+abstract: "This is an abstract"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+## Group Project 
+
+*Team Members:*
+
+- Hadrien
+- Jean
+- Kai
+
+
+## Introduction
+Motivations, why am I interested in this topic
+
+
+## Data
+how we get data
+
+how we prepare the data
+
+## Methodology
+
+linear regression, machine learning algortihm etc 
+
+## Findings
+
+
+```{r, echo=FALSE}
+summary(cars)
+```
