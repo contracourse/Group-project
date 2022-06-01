@@ -90,7 +90,7 @@ mean((pcr_pred - y_test)^2)
 library(quantmod)
 library(downloader)
 library(ggplot2)
-library(reshape)
+library(reshape2)
 library(corrplot)
 library(data.table)
 
@@ -120,6 +120,7 @@ test <- last(rates, 334)
 
 test %>% as.matrix()
 train %>% as.matrix()
+
 #
 rates = last(rates, 500)
 
