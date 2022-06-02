@@ -100,6 +100,8 @@ for (term in terms) {
   getSymbols(paste('DGS', term, sep=''), src='FRED')
 }
 
+items = c("T10Y3M", "T10Y2Y")
+shtm = getSymbols(items, src='FRED', sep=',')
 
 DGS1 = DGS1[!is.na(DGS1)]
 DGS2 = DGS2[!is.na(DGS2)]
@@ -108,12 +110,17 @@ DGS5 = DGS5[!is.na(DGS5)]
 DGS7 = DGS7[!is.na(DGS7)]
 DGS10 = DGS10[!is.na(DGS10)]
 DGS30 = DGS30[!is.na(DGS30)]
+DGS10Y2Y = T10Y2Y[!is.na(T10Y2Y)]
+DGS10Y3M = T10Y3M[!is.na(T10Y3M)]
+
 
 start_date <- as.Date('1981-07-01') 
 end_date <- as.Date('1982-11-01')
 
 rates = cbind(DGS1, DGS2, DGS3, DGS5, DGS7, DGS10, DGS30)
 
+# we focus on the 3month and 10-year yields as representative short- and long-term interest rates, and deﬁne the slope of the curve as the diﬀerence between these two yields
+# rates2 = cbind(DGS2 , DGS10, DGS10Y3M)
 
 train <- rates["1981-07-01/1982-11-01"]
 test <- last(rates, 334)
@@ -142,6 +149,9 @@ corrplot(covariance_matrix, method='shade', type='full', shade.col=NA, tl.col='b
 library(ggbiplot)
 ggbiplot(fit, obs.scale=1, var.scale=1)
 ggscreeplot(fit)
+
+library(FactoMineR)
+res.pca <- PCA(rates, scale.unit = TRUE, quali.sup = c(1,2,15), ncp = 5, graph = T)
 
 
 scores = fit$scores
